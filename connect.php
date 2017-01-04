@@ -13,4 +13,6 @@ echo "Could not connect to the Database";
 //guapo kaayo ko
 
 //mas guapo jud ko
+
+//connect
 ?>
