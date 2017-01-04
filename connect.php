@@ -1,7 +1,14 @@
 <?php
-$con = mysqli_connect('localhost', 'root', '', 'insular');
+$con=mysql_connect("localhost","root");
 if(!$con)
 {
-	echo "Could not connect to the server";
+echo "Could not connect to the server";
 }
+$database=mysql_select_db("insular");
+if(!$database)
+{
+echo "Could not connect to the Database";
+}
+
+//guapo kaayo ko
 ?>
