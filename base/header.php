@@ -2,19 +2,13 @@
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /><LINK REL="SHORTCUT ICON"HREF="images/tgplogo.png"><title>The Great Provider</title>
-<<<<<<< HEAD
   <title>The Great Provider</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
-=======
-  <title>Login</title>
-  <link rel="stylesheet" href="/assets/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="/assets/css/jquery.dataTables.min.css">
->>>>>>> origin/dev
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="assets/css/jquery.dataTables.min.css">
 </head>
-<script type="text/javascript" src="/assets/js/jquery.min.js"></script>
-<script src="/assets/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script type="text/javascript" src="/assets/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="assets/js/jquery.min.js"></script>
+<script src="assets/js/bootstrap.min.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="assets/js/jquery.dataTables.min.js"></script>
 
 <style type="text/css">
 	.navbar-brand>img {
