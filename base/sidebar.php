@@ -133,8 +133,8 @@ body {
   				<!-- END SIDEBAR USER TITLE -->
   				<!-- SIDEBAR BUTTONS -->
   				<div class="profile-userbuttons">
-  					<button type="button" class="btn btn-success btn-sm">Follow</button>
-  					<button type="button" class="btn btn-danger btn-sm">Message</button>
+  				<!--	<button type="button" class="btn btn-success btn-sm">Follow</button>-->
+  					<a href="team.php"><button type="button" class="btn btn-danger btn-sm" >Message</button></a>
   				</div>
   				<!-- END SIDEBAR BUTTONS -->
   				<!-- SIDEBAR MENU -->

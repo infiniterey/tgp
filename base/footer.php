@@ -1,12 +1,12 @@
 <html lang="en"><head>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,300" rel="stylesheet">
 <style type="text/css">
-footer { background-color:#092f5a; min-height:350px; font-family: 'Open Sans', sans-serif; }
+footer { background-color:#f9f7f7; min-height:350px; font-family: 'Open Sans', sans-serif; }
 .footerleft { margin-top:50px; padding:0 36px; }
 .logofooter { margin-bottom:10px; font-size:25px; color:#fff; font-weight:700;}
 
-.footerleft p { color:#fff; font-size:12px !important; font-family: 'Open Sans', sans-serif; margin-bottom:15px;}
-.footerleft p i { width:20px; color:#999;}
+.footerleft p { color:#505050; font-size:12px !important; font-family: 'Open Sans', sans-serif; margin-bottom:15px;}
+.footerleft p i { width:20px; color:#262626;}
 .footer {
   position: absolute;
   right: 0;
@@ -19,7 +19,7 @@ footer { background-color:#092f5a; min-height:350px; font-family: 'Open Sans', s
 .paddingtop-bottom {  margin-top:50px;}
 .footer-ul { list-style-type:none;  padding-left:0px; margin-left:2px;}
 .footer-ul li { line-height:29px; font-size:12px;}
-.footer-ul li a { color:#a0a3a4; transition: color 0.2s linear 0s, background 0.2s linear 0s; }
+.footer-ul li a { color:#505050; transition: color 0.2s linear 0s, background 0.2s linear 0s; }
 .footer-ul i { margin-right:10px;}
 .footer-ul li a:hover {transition: color 0.2s linear 0s, background 0.2s linear 0s; color:#ff670f; }
 
@@ -32,14 +32,14 @@ footer { background-color:#092f5a; min-height:350px; font-family: 'Open Sans', s
  .icon-ul li { line-height:75px; width:100%; float:left;}
  .icon { float:left; margin-right:5px;}
  .footer2 { min-height:40px; background-color:#929292;}
- .footer2 p { text-align:left; color:#000000; padding:10px 0; margin-bottom:0px;}
- .heading7 { font-size:21px; font-weight:700; color:#d9d6d6; margin-bottom:22px;}
- .post p { font-size:12px; color:#FFF; line-height:20px;}
- .post p span { display:block; color:#8f8f8f;}
+ .footer2 p { text-align:left; color:#262626; padding:10px 0; margin-bottom:0px;}
+ .heading7 { font-size:21px; font-weight:700; color:#262626; margin-bottom:22px;}
+ .post p { font-size:12px; color:#505050; line-height:20px;}
+ .post p span { display:block; color:#262626;}
  .bottom_ul { list-style-type:none; float:right; margin-bottom:0px;}
  .bottom_ul li { float:left; line-height:40px;}
- .bottom_ul li:after {content:"|"; color:#FFF; margin-right:8px; margin-left:8px;}
- .bottom_ul li a { color:#000000;  font-size:15px;}
+ .bottom_ul li:after {content:"|"; color:#262626; margin-right:8px; margin-left:8px;}
+ .bottom_ul li a { color:#262626;  font-size:15px;}
 </style>
 	<body>
 

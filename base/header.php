@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /><LINK REL="SHORTCUT ICON"HREF="images/tgplogo.png"><title>The Great Provider</title>
-  <title>Login</title>
+  <title>The Great Provider</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
 </head>
@@ -62,19 +62,7 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <?php
-            $login=$_SESSION['$logstatus'];
-            if(!$login= '1'){
-            echo "<li><a href='#'>Login</a></li>
-            <li><a href='#'>Register</a></li>";}
-            else {
-              echo "<li><a href='#'>Profile</a></li>
-              <li><a href='logout.php'>Logout</a></li>";
-            }
-            ?>
+      <li><a href="logout.php">Logout</a></li>
           </ul>
         </li>
       </ul>
