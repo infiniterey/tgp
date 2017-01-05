@@ -2,26 +2,35 @@
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /><LINK REL="SHORTCUT ICON"HREF="images/tgplogo.png"><title>The Great Provider</title>
+<<<<<<< HEAD
   <title>The Great Provider</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
+=======
+  <title>Login</title>
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="/assets/css/jquery.dataTables.min.css">
+>>>>>>> origin/dev
 </head>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="/assets/js/jquery.min.js"></script>
+<script src="/assets/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/assets/js/jquery.dataTables.min.js"></script>
 
 <style type="text/css">
 	.navbar-brand>img {
 	    display: initial;
 	}
+	.navbar-brand{
+		float: none
+	}
 </style>
 
 <body>
   <?php
-  session_start();
-  if(isset($_SESSION["username"]) and isset($_SESSION["password"]))
-  {
-    ?>
+    session_start();
+    if(isset($_SESSION["username"]) and isset($_SESSION["password"]))
+    {
+  ?>
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -31,9 +40,10 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">
-      	<img src="images/tgplogo.png" width="20"> The Great Provider
+      <a class="navbar-brand brand-name" href="#">
+      	<img src="images/tgplogo.png" width="50"> The Great Provider
       </a>
+
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -42,7 +52,7 @@
       	<li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Production <span class="caret"></span></a>
           <ul class="dropdown-menu">
-           	<li><a href="#">Daily Production</a></li>
+           	<li><a href="/dailyprod.php">Daily Production</a></li>
             <li><a href="#">Agent Production</a></li>
             <li><a href="#">Company Production</a></li>
           </ul>
@@ -73,7 +83,7 @@
 }
 else
 {
-header("location:index.php");
+  header("location:index.php");
 }
 ?>
 </body></html>

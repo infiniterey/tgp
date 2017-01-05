@@ -1,5 +1,13 @@
-<?php include("base/header.php")?>
+<?php 
 
+    require_once("dbwrapper/wrapper.php");
+    $db = Database::getInstance();
+    $mysqli = $db->getConnection(); 
+    $sql_query = "SELECT * FROM product";
+
+?>
+
+<?php include("base/header.php")?>
 
   <div class="col-md-12">
     <table id="example" class="display" cellspacing="0" width="100%">
@@ -34,279 +42,27 @@
             </tr>
         </tfoot>
         <tbody>
-            <tr>
-                <td>2</td>
-                <td>2012/12/17</td>
-                <td>PO091234</td>
-                <td>WB</td>
-                <td>John</td>
-                <td>Panugaling</td>
-                <td>Premunj</td>
-                <td>092112</td>
-                <td>Php21,000.00</td>
-                <td>Panugaling, Jax</td>
-                <td>
-                  <button class="btn btn-primary btn-xs" data-title="Edit"><span class="glyphicon glyphicon-pencil"></span></button>
-                  <button class="btn btn-danger btn-xs" data-title="Delete"><span class="glyphicon glyphicon-trash"></span></button>
-                </td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>2012/12/17</td>
-                <td>PO091234</td>
-                <td>WB</td>
-                <td>John</td>
-                <td>Panugaling</td>
-                <td>Premunj</td>
-                <td>092112</td>
-                <td>Php21,000.00</td>
-                <td>Panugaling, Jax</td>
-                <td>
-                  <button class="btn btn-primary btn-xs" data-title="Edit"><span class="glyphicon glyphicon-pencil"></span></button>
-                  <button class="btn btn-danger btn-xs" data-title="Delete"><span class="glyphicon glyphicon-trash"></span></button>
-                </td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>2012/12/17</td>
-                <td>PO091234</td>
-                <td>WB</td>
-                <td>John</td>
-                <td>Panugaling</td>
-                <td>Premunj</td>
-                <td>092112</td>
-                <td>Php21,000.00</td>
-                <td>Panugaling, Jax</td>
-                <td>
-                  <button class="btn btn-primary btn-xs" data-title="Edit"><span class="glyphicon glyphicon-pencil"></span></button>
-                  <button class="btn btn-danger btn-xs" data-title="Delete"><span class="glyphicon glyphicon-trash"></span></button>
-                </td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>2012/12/17</td>
-                <td>PO091234</td>
-                <td>WB</td>
-                <td>John</td>
-                <td>Panugaling</td>
-                <td>Premunj</td>
-                <td>092112</td>
-                <td>Php21,000.00</td>
-                <td>Panugaling, Jax</td>
-                <td>
-                  <button class="btn btn-primary btn-xs" data-title="Edit"><span class="glyphicon glyphicon-pencil"></span></button>
-                  <button class="btn btn-danger btn-xs" data-title="Delete"><span class="glyphicon glyphicon-trash"></span></button>
-                </td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>2012/12/17</td>
-                <td>PO091234</td>
-                <td>WB</td>
-                <td>John</td>
-                <td>Panugaling</td>
-                <td>Premunj</td>
-                <td>092112</td>
-                <td>Php21,000.00</td>
-                <td>Panugaling, Jax</td>
-                <td>
-                  <button class="btn btn-primary btn-xs" data-title="Edit"><span class="glyphicon glyphicon-pencil"></span></button>
-                  <button class="btn btn-danger btn-xs" data-title="Delete"><span class="glyphicon glyphicon-trash"></span></button>
-                </td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>2012/12/17</td>
-                <td>PO091234</td>
-                <td>WB</td>
-                <td>John</td>
-                <td>Panugaling</td>
-                <td>Premunj</td>
-                <td>092112</td>
-                <td>Php21,000.00</td>
-                <td>Panugaling, Jax</td>
-                <td>
-                  <button class="btn btn-primary btn-xs" data-title="Edit"><span class="glyphicon glyphicon-pencil"></span></button>
-                  <button class="btn btn-danger btn-xs" data-title="Delete"><span class="glyphicon glyphicon-trash"></span></button>
-                </td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>2012/12/17</td>
-                <td>PO091234</td>
-                <td>WB</td>
-                <td>John</td>
-                <td>Panugaling</td>
-                <td>Premunj</td>
-                <td>092112</td>
-                <td>Php21,000.00</td>
-                <td>Panugaling, Jax</td>
-                <td>
-                  <button class="btn btn-primary btn-xs" data-title="Edit"><span class="glyphicon glyphicon-pencil"></span></button>
-                  <button class="btn btn-danger btn-xs" data-title="Delete"><span class="glyphicon glyphicon-trash"></span></button>
-                </td>
-            </tr>
-
-            <tr>
-                <td>2</td>
-                <td>2012/12/17</td>
-                <td>PO091234</td>
-                <td>WB</td>
-                <td>John</td>
-                <td>Panugaling</td>
-                <td>Premunj</td>
-                <td>092112</td>
-                <td>Php21,000.00</td>
-                <td>Panugaling, Jax</td>
-                <td>
-                  <button class="btn btn-primary btn-xs" data-title="Edit"><span class="glyphicon glyphicon-pencil"></span></button>
-                  <button class="btn btn-danger btn-xs" data-title="Delete"><span class="glyphicon glyphicon-trash"></span></button>
-                </td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>2012/12/17</td>
-                <td>PO091234</td>
-                <td>WB</td>
-                <td>John</td>
-                <td>Panugaling</td>
-                <td>Premunj</td>
-                <td>092112</td>
-                <td>Php21,000.00</td>
-                <td>Panugaling, Jax</td>
-                <td>
-                  <button class="btn btn-primary btn-xs" data-title="Edit"><span class="glyphicon glyphicon-pencil"></span></button>
-                  <button class="btn btn-danger btn-xs" data-title="Delete"><span class="glyphicon glyphicon-trash"></span></button>
-                </td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>2012/12/17</td>
-                <td>PO091234</td>
-                <td>WB</td>
-                <td>John</td>
-                <td>Panugaling</td>
-                <td>Premunj</td>
-                <td>092112</td>
-                <td>Php21,000.00</td>
-                <td>Panugaling, Jax</td>
-                <td>
-                  <button class="btn btn-primary btn-xs" data-title="Edit"><span class="glyphicon glyphicon-pencil"></span></button>
-                  <button class="btn btn-danger btn-xs" data-title="Delete"><span class="glyphicon glyphicon-trash"></span></button>
-                </td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>2012/12/17</td>
-                <td>PO091234</td>
-                <td>WB</td>
-                <td>John</td>
-                <td>Panugaling</td>
-                <td>Premunj</td>
-                <td>092112</td>
-                <td>Php21,000.00</td>
-                <td>Panugaling, Jax</td>
-                <td>
-                  <button class="btn btn-primary btn-xs" data-title="Edit"><span class="glyphicon glyphicon-pencil"></span></button>
-                  <button class="btn btn-danger btn-xs" data-title="Delete"><span class="glyphicon glyphicon-trash"></span></button>
-                </td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>2012/12/17</td>
-                <td>PO091234</td>
-                <td>WB</td>
-                <td>John</td>
-                <td>Panugaling</td>
-                <td>Premunj</td>
-                <td>092112</td>
-                <td>Php21,000.00</td>
-                <td>Panugaling, Jax</td>
-                <td>
-                  <button class="btn btn-primary btn-xs" data-title="Edit"><span class="glyphicon glyphicon-pencil"></span></button>
-                  <button class="btn btn-danger btn-xs" data-title="Delete"><span class="glyphicon glyphicon-trash"></span></button>
-                </td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>2012/12/17</td>
-                <td>PO091234</td>
-                <td>WB</td>
-                <td>John</td>
-                <td>Panugaling</td>
-                <td>Premunj</td>
-                <td>092112</td>
-                <td>Php21,000.00</td>
-                <td>Panugaling, Jax</td>
-                <td>
-                  <button class="btn btn-primary btn-xs" data-title="Edit"><span class="glyphicon glyphicon-pencil"></span></button>
-                  <button class="btn btn-danger btn-xs" data-title="Delete"><span class="glyphicon glyphicon-trash"></span></button>
-                </td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>2012/12/17</td>
-                <td>PO091234</td>
-                <td>WB</td>
-                <td>John</td>
-                <td>Panugaling</td>
-                <td>Premunj</td>
-                <td>092112</td>
-                <td>Php21,000.00</td>
-                <td>Panugaling, Jax</td>
-                <td>
-                  <button class="btn btn-primary btn-xs" data-title="Edit"><span class="glyphicon glyphicon-pencil"></span></button>
-                  <button class="btn btn-danger btn-xs" data-title="Delete"><span class="glyphicon glyphicon-trash"></span></button>
-                </td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>2012/12/17</td>
-                <td>PO091234</td>
-                <td>WB</td>
-                <td>John</td>
-                <td>Panugaling</td>
-                <td>Premunj</td>
-                <td>092112</td>
-                <td>Php21,000.00</td>
-                <td>Panugaling, Jax</td>
-                <td>
-                  <button class="btn btn-primary btn-xs" data-title="Edit"><span class="glyphicon glyphicon-pencil"></span></button>
-                  <button class="btn btn-danger btn-xs" data-title="Delete"><span class="glyphicon glyphicon-trash"></span></button>
-                </td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>2012/12/17</td>
-                <td>PO091234</td>
-                <td>WB</td>
-                <td>John</td>
-                <td>Panugaling</td>
-                <td>Premunj</td>
-                <td>092112</td>
-                <td>Php21,000.00</td>
-                <td>Panugaling, Jax</td>
-                <td>
-                  <button class="btn btn-primary btn-xs" data-title="Edit"><span class="glyphicon glyphicon-pencil"></span></button>
-                  <button class="btn btn-danger btn-xs" data-title="Delete"><span class="glyphicon glyphicon-trash"></span></button>
-                </td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>2012/12/17</td>
-                <td>PO091234</td>
-                <td>WB</td>
-                <td>John</td>
-                <td>Panugaling</td>
-                <td>Premunj</td>
-                <td>092112</td>
-                <td>Php21,000.00</td>
-                <td>Panugaling, Jax</td>
-                <td>
-                  <button class="btn btn-primary btn-xs" data-title="Edit"><span class="glyphicon glyphicon-pencil"></span></button>
-                  <button class="btn btn-danger btn-xs" data-title="Delete"><span class="glyphicon glyphicon-trash"></span></button>
-                </td>
-            </tr>
+            <? if ($result = $mysqli->query($sql_query)) {?>
+                <? while ($row = $result->fetch_assoc()) { ?>
+                    <tr>
+                        <td><? echo $row["id"] ?></td>
+                        <td><? echo $row["tdate"] ?></td>
+                        <td><? echo $row["policy_no"] ?></td>
+                        <td>WB</td>
+                        <td><? echo $row["fname"] ?></td>
+                        <td><? echo $row["lname"] ?></td>
+                        <td><? echo $row["premium"] ?></td>
+                        <td><? echo $row["or_no"] ?></td>
+                        <td><? echo $row["famount"] ?></td>
+                        <td><? echo $row["agent"] ?></td>
+                        <td>
+                          <button class="btn btn-primary btn-xs" data-title="Edit"><span class="glyphicon glyphicon-pencil"></span></button>
+                          <button class="btn btn-danger btn-xs" data-title="Delete"><span class="glyphicon glyphicon-trash"></span></button>
+                        </td>
+                    </tr>
+                <?}?>
+                <?$result->free();?>
+            <?}?>
         </tbody>
     </table>
   </div>
@@ -314,9 +70,10 @@
   
 
   <script type="text/javascript">
-  
     $(document).ready(function() {
-        $('#example').DataTable();
+        $('#example').DataTable({
+            "pageLength": 25
+        });
     } );
   </script>
 
