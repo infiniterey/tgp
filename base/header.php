@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /><LINK REL="SHORTCUT ICON"HREF="images/tgplogo.png"><title>The Great Provider</title>
   <title>Login</title>
   <link rel="stylesheet" href="/assets/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="/assets/css/jquery.dataTables.min.css">
@@ -19,10 +20,12 @@
 </style>
 
 <body>
-
-
-
-<nav class="navbar navbar-inverse">
+  <?php
+    session_start();
+    if(isset($_SESSION["username"]) and isset($_SESSION["password"]))
+    {
+  ?>
+<nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -43,7 +46,7 @@
       	<li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Production <span class="caret"></span></a>
           <ul class="dropdown-menu">
-           	<li><a href="#">Daily Production</a></li>
+           	<li><a href="/dailyprod.php">Daily Production</a></li>
             <li><a href="#">Agent Production</a></li>
             <li><a href="#">Company Production</a></li>
           </ul>
@@ -52,17 +55,41 @@
         <li><a href="#">Collectables</a></li>
         <li><a href="#">Drives</a></li>
         <li><a href="#">Persistency</a></li>
-        <li><a href="#">Settings</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Setting <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Agent Setting</a></li>
+            <li><a href="#">Team Setting</a></li>
+            <li><a href="#">Plan Setting</a></li>
+            <li><a href="#">User Setting</a></li>
+          </ul>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Logout</a></li>
+            <?php
+            $login=$_SESSION['$logstatus'];
+            if(!$login= '1'){
+            echo "<li><a href='#'>Login</a></li>
+            <li><a href='#'>Register</a></li>";}
+            else {
+              echo "<li><a href='#'>Profile</a></li>
+              <li><a href='logout.php'>Logout</a></li>";
+            }
+            ?>
           </ul>
         </li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+<?php
+}
+else
+{
+  header("location:index.php");
+}
+?>
+</body></html>

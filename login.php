@@ -1,209 +1,337 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-    <style type="text/css">
-    <!--
+<html>
+<head>
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto">
+  <title>Login</title>
+</head>
+<style type="text/css">
 
-		<!-- Website CSS style -->
-		<link href="css/bootstrap.min.css" rel="stylesheet">
+* {
+    font-family: 'Roboto', sans-serif;
+}
 
-		<!-- Website Font style -->
-	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-		<link rel="stylesheet" href="style.css">
-		<!-- Google Fonts -->
-		<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
-		<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+#login-modal .modal-dialog {
+    width: 350px;
+}
 
-    /*
-    /* Created by Filipe Pina
-     * Specific styles of signin, register, component
-     */
-    /*
-     * General styles
-     */
-    #playground-container {
-        height: 500px;
-        overflow: hidden !important;
-        -webkit-overflow-scrolling: touch;
-    }
-    body, html{
-         height: 100%;
-     	background-repeat: no-repeat;
-     	font-family: 'Oxygen', sans-serif;
-    }
+#login-modal input[type=text], input[type=password] {
+	margin-top: 10px;
+}
 
-    .main{
-     	margin:50px 15px;
-    }
+#div-login-msg,
+#div-lost-msg,
+#div-register-msg {
+    border: 1px solid #dadfe1;
+    height: 30px;
+    line-height: 28px;
+    transition: all ease-in-out 500ms;
+}
 
-    h1.title {
-    	font-size: 50px;
-    	font-family: 'Passion One', cursive;
-    	font-weight: 400;
-    }
+#div-login-msg.success,
+#div-lost-msg.success,
+#div-register-msg.success {
+    border: 1px solid #68c3a3;
+    background-color: #c8f7c5;
+}
 
-    hr{
-    	width: 10%;
-    	color: #fff;
-    }
+#div-login-msg.error,
+#div-lost-msg.error,
+#div-register-msg.error {
+    border: 1px solid #eb575b;
+    background-color: #ffcad1;
+}
 
-    .form-group{
-    	margin-bottom: 15px;
-    }
+#icon-login-msg,
+#icon-lost-msg,
+#icon-register-msg {
+    width: 30px;
+    float: left;
+    line-height: 28px;
+    text-align: center;
+    background-color: #dadfe1;
+    margin-right: 5px;
+    transition: all ease-in-out 500ms;
+}
 
-    label{
-    	margin-bottom: 15px;
-    }
+#icon-login-msg.success,
+#icon-lost-msg.success,
+#icon-register-msg.success {
+    background-color: #68c3a3 !important;
+}
 
-    input,
-    input::-webkit-input-placeholder {
-        font-size: 11px;
-        padding-top: 3px;
-    }
+#icon-login-msg.error,
+#icon-lost-msg.error,
+#icon-register-msg.error {
+    background-color: #eb575b !important;
+}
 
-    .main-login{
-     	background-color: #fff;
-        /* shadows and rounded borders */
-        -moz-border-radius: 2px;
-        -webkit-border-radius: 2px;
-        border-radius: 2px;
-        -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-        -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+#img_logo {
+    max-height: 100px;
+    max-width: 100px;
+}
 
-    }
-    .form-control {
-        height: auto!important;
-    padding: 8px 12px !important;
-    }
-    .input-group {
-        -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;
-        -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;
-        box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;
-    }
-    #button {
-        border: 1px solid #ccc;
-        margin-top: 28px;
-        padding: 6px 12px;
-        color: #666;
-        text-shadow: 0 1px #fff;
-        cursor: pointer;
-        -moz-border-radius: 3px 3px;
-        -webkit-border-radius: 3px 3px;
-        border-radius: 3px 3px;
-        -moz-box-shadow: 0 1px #fff inset, 0 1px #ddd;
-        -webkit-box-shadow: 0 1px #fff inset, 0 1px #ddd;
-        box-shadow: 0 1px #fff inset, 0 1px #ddd;
-        background: #f5f5f5;
-        background: -moz-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
-        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f5f5f5), color-stop(100%, #eeeeee));
-        background: -webkit-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
-        background: -o-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
-        background: -ms-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
-        background: linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5f5f5', endColorstr='#eeeeee', GradientType=0);
-    }
-    .main-center{
-     	margin-top: 30px;
-     	margin: 0 auto;
-     	max-width: 400px;
-        padding: 10px 40px;
-    	background:#009edf;
-    	    color: #FFF;
-        text-shadow: none;
-    	-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
-    -moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
-    box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
+/* #########################################
+   #    override the bootstrap configs     #
+   ######################################### */
 
-    }
-    span.input-group-addon i {
-        color: #009edf;
-        font-size: 17px;
-    }
+.modal-backdrop.in {
+    filter: alpha(opacity=50);
+    opacity: .8;
+}
 
-    .login-button{
-    	margin-top: 5px;
-    }
+.modal-content {
+    background-color: #ececec;
+    border: 1px solid #bdc3c7;
+    border-radius: 0px;
+    outline: 0;
+}
 
-    .login-register{
-    	font-size: 11px;
-    	text-align: center;
-    }
-    -->
-    </style>
+.modal-header {
+    min-height: 16.43px;
+    padding: 15px 15px 15px 15px;
+    border-bottom: 0px;
+}
 
-		<title></title>
-	</head>
-	<body>
-		<div class="container">
-			<div class="row main">
-				<div class="main-login main-center">
-				<h5>User Registretion</h5>
-					<form class="" method="post" action="#">
+.modal-body {
+    position: relative;
+    padding: 5px 15px 5px 15px;
+}
 
-						<div class="form-group">
-							<label for="name" class="cols-sm-2 control-label">Your Name</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="name" id="name"  placeholder="Enter your Name"/>
-								</div>
-							</div>
-						</div>
+.modal-footer {
+    padding: 15px 15px 15px 15px;
+    text-align: left;
+    border-top: 0px;
+}
 
-						<div class="form-group">
-							<label for="email" class="cols-sm-2 control-label">Your Email</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="email" id="email"  placeholder="Enter your Email"/>
-								</div>
-							</div>
-						</div>
+.checkbox {
+    margin-bottom: 0px;
+}
 
-						<div class="form-group">
-							<label for="username" class="cols-sm-2 control-label">Username</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="username" id="username"  placeholder="Enter your Username"/>
-								</div>
-							</div>
-						</div>
+.btn {
+    border-radius: 0px;
+}
 
-						<div class="form-group">
-							<label for="password" class="cols-sm-2 control-label">Password</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password"/>
-								</div>
-							</div>
-						</div>
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn.active.focus {
+    outline: none;
+}
 
-						<div class="form-group">
-							<label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" name="confirm" id="confirm"  placeholder="Confirm your Password"/>
-								</div>
-							</div>
-						</div>
+.btn-lg, .btn-group-lg>.btn {
+    border-radius: 0px;
+}
 
-						<div class="form-group ">
-							<a href="http://deepak646.blogspot.in" target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">Register</a>
-						</div>
+.btn-link {
+    padding: 5px 10px 0px 0px;
+    color: #95a5a6;
+}
 
-					</form>
-				</div>
-			</div>
-		</div>
+.btn-link:hover, .btn-link:focus {
+    color: #2c3e50;
+    text-decoration: none;
+}
 
-		 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-	</body>
+.glyphicon {
+    top: 0px;
+}
+
+.form-control {
+  border-radius: 0px;
+}
+
+</style>
+< <script type="text/javascript">
+$(function() {
+
+  var $formLogin = $('#login-form');
+  var $formLost = $('#lost-form');
+  var $formRegister = $('#register-form');
+  var $divForms = $('#div-forms');
+  var $modalAnimateTime = 300;
+  var $msgAnimateTime = 150;
+  var $msgShowTime = 2000;
+
+  $("form").submit(function () {
+      switch(this.id) {
+          case "login-form":
+              var $lg_username=$('#login_username').val();
+              var $lg_password=$('#login_password').val();
+              if ($lg_username == "ERROR") {
+                  msgChange($('#div-login-msg'), $('#icon-login-msg'), $('#text-login-msg'), "error", "glyphicon-remove", "Login error");
+              } else {
+                  msgChange($('#div-login-msg'), $('#icon-login-msg'), $('#text-login-msg'), "success", "glyphicon-ok", "Login OK");
+              }
+              return false;
+              break;
+          case "lost-form":
+              var $ls_email=$('#lost_email').val();
+              if ($ls_email == "ERROR") {
+                  msgChange($('#div-lost-msg'), $('#icon-lost-msg'), $('#text-lost-msg'), "error", "glyphicon-remove", "Send error");
+              } else {
+                  msgChange($('#div-lost-msg'), $('#icon-lost-msg'), $('#text-lost-msg'), "success", "glyphicon-ok", "Send OK");
+              }
+              return false;
+              break;
+          case "register-form":
+              var $rg_username=$('#register_username').val();
+              var $rg_email=$('#register_email').val();
+              var $rg_password=$('#register_password').val();
+              if ($rg_username == "ERROR") {
+                  msgChange($('#div-register-msg'), $('#icon-register-msg'), $('#text-register-msg'), "error", "glyphicon-remove", "Register error");
+              } else {
+                  msgChange($('#div-register-msg'), $('#icon-register-msg'), $('#text-register-msg'), "success", "glyphicon-ok", "Register OK");
+              }
+              return false;
+              break;
+          default:
+              return false;
+      }
+      return false;
+  });
+
+  $('#login_register_btn').click( function () { modalAnimate($formLogin, $formRegister) });
+  $('#register_login_btn').click( function () { modalAnimate($formRegister, $formLogin); });
+  $('#login_lost_btn').click( function () { modalAnimate($formLogin, $formLost); });
+  $('#lost_login_btn').click( function () { modalAnimate($formLost, $formLogin); });
+  $('#lost_register_btn').click( function () { modalAnimate($formLost, $formRegister); });
+  $('#register_lost_btn').click( function () { modalAnimate($formRegister, $formLost); });
+
+  function modalAnimate ($oldForm, $newForm) {
+      var $oldH = $oldForm.height();
+      var $newH = $newForm.height();
+      $divForms.css("height",$oldH);
+      $oldForm.fadeToggle($modalAnimateTime, function(){
+          $divForms.animate({height: $newH}, $modalAnimateTime, function(){
+              $newForm.fadeToggle($modalAnimateTime);
+          });
+      });
+  }
+
+  function msgFade ($msgId, $msgText) {
+      $msgId.fadeOut($msgAnimateTime, function() {
+          $(this).text($msgText).fadeIn($msgAnimateTime);
+      });
+  }
+
+  function msgChange($divTag, $iconTag, $textTag, $divClass, $iconClass, $msgText) {
+      var $msgOld = $divTag.text();
+      msgFade($textTag, $msgText);
+      $divTag.addClass($divClass);
+      $iconTag.removeClass("glyphicon-chevron-right");
+      $iconTag.addClass($iconClass + " " + $divClass);
+      setTimeout(function() {
+          msgFade($textTag, $msgOld);
+          $divTag.removeClass($divClass);
+          $iconTag.addClass("glyphicon-chevron-right");
+          $iconTag.removeClass($iconClass + " " + $divClass);
+    }, $msgShowTime);
+  }
+});
+</script>
+
+<body>
+  <!-- BEGIN # BOOTSNIP INFO -->
+  <div class="container">
+  	<div class="row">
+  		<h1 class="text-center">Modal Login with jQuery Effects</h1>
+          <p class="text-center"><a href="#" class="btn btn-primary btn-lg" role="button" data-toggle="modal" data-target="#login-modal">Open Login Modal</a></p>
+  	</div>
+  </div>
+  <!-- END # BOOTSNIP INFO -->
+
+  <!-- BEGIN # MODAL LOGIN -->
+  <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+      	<div class="modal-dialog">
+  			<div class="modal-content">
+  				<div class="modal-header" align="center">
+  					<img class="img-circle" id="img_logo" src="http://bootsnipp.com/img/logo.jpg">
+  					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+  						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+  					</button>
+  				</div>
+
+                  <!-- Begin # DIV Form -->
+                  <div id="div-forms">
+
+                      <!-- Begin # Login Form -->
+                      <form id="login-form">
+  		                <div class="modal-body">
+  				    		<div id="div-login-msg">
+                                  <div id="icon-login-msg" class="glyphicon glyphicon-chevron-right"></div>
+                                  <span id="text-login-msg">Type your username and password.</span>
+                              </div>
+  				    		<input id="login_username" class="form-control" type="text" placeholder="Username (type ERROR for error effect)" required>
+  				    		<input id="login_password" class="form-control" type="password" placeholder="Password" required>
+                              <div class="checkbox">
+                                  <label>
+                                      <input type="checkbox"> Remember me
+                                  </label>
+                              </div>
+          		    	</div>
+  				        <div class="modal-footer">
+                              <div>
+                                  <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
+                              </div>
+  				    	    <div>
+                                  <button id="login_lost_btn" type="button" class="btn btn-link">Lost Password?</button>
+                                  <button id="login_register_btn" type="button" class="btn btn-link">Register</button>
+                              </div>
+  				        </div>
+                      </form>
+                      <!-- End # Login Form -->
+
+                      <!-- Begin | Lost Password Form -->
+                      <form id="lost-form" style="display:none;">
+      	    		    <div class="modal-body">
+  		    				<div id="div-lost-msg">
+                                  <div id="icon-lost-msg" class="glyphicon glyphicon-chevron-right"></div>
+                                  <span id="text-lost-msg">Type your e-mail.</span>
+                              </div>
+  		    				<input id="lost_email" class="form-control" type="text" placeholder="E-Mail (type ERROR for error effect)" required>
+              			</div>
+  		    		    <div class="modal-footer">
+                              <div>
+                                  <button type="submit" class="btn btn-primary btn-lg btn-block">Send</button>
+                              </div>
+                              <div>
+                                  <button id="lost_login_btn" type="button" class="btn btn-link">Log In</button>
+                                  <button id="lost_register_btn" type="button" class="btn btn-link">Register</button>
+                              </div>
+  		    		    </div>
+                      </form>
+                      <!-- End | Lost Password Form -->
+
+                      <!-- Begin | Register Form -->
+                      <form id="register-form" style="display:none;">
+              		    <div class="modal-body">
+  		    				<div id="div-register-msg">
+                                  <div id="icon-register-msg" class="glyphicon glyphicon-chevron-right"></div>
+                                  <span id="text-register-msg">Register an account.</span>
+                              </div>
+  		    				<input id="register_username" class="form-control" type="text" placeholder="Username (type ERROR for error effect)" required>
+                              <input id="register_email" class="form-control" type="text" placeholder="E-Mail" required>
+                              <input id="register_password" class="form-control" type="password" placeholder="Password" required>
+              			</div>
+  		    		    <div class="modal-footer">
+                              <div>
+                                  <button type="submit" class="btn btn-primary btn-lg btn-block">Register</button>
+                              </div>
+                              <div>
+                                  <button id="register_login_btn" type="button" class="btn btn-link">Log In</button>
+                                  <button id="register_lost_btn" type="button" class="btn btn-link">Lost Password?</button>
+                              </div>
+  		    		    </div>
+                      </form>
+                      <!-- End | Register Form -->
+
+                  </div>
+                  <!-- End # DIV Form -->
+
+  			</div>
+  		</div>
+  	</div>
+      <!-- END # MODAL LOGIN -->
 </html>
