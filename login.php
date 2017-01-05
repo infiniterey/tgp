@@ -1,209 +1,123 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-    <style type="text/css">
-    <!--
+<html>
+<head>
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto">
+  <title>Login</title>
+</head>
+<style type="text/css">
+  /****** LOGIN MODAL ******/
+  .loginmodal-container {
+    padding: 30px;
+    max-width: 350px;
+    width: 100% !important;
+    background-color: #F7F7F7;
+    margin: 0 auto;
+    border-radius: 2px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    font-family: roboto;
+  }
 
-		<!-- Website CSS style -->
-		<link href="css/bootstrap.min.css" rel="stylesheet">
+  .loginmodal-container h1 {
+    text-align: center;
+    font-size: 1.8em;
+    font-family: roboto;
+  }
 
-		<!-- Website Font style -->
-	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-		<link rel="stylesheet" href="style.css">
-		<!-- Google Fonts -->
-		<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
-		<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+  .loginmodal-container input[type=submit] {
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+    position: relative;
+  }
 
-    /*
-    /* Created by Filipe Pina
-     * Specific styles of signin, register, component
-     */
-    /*
-     * General styles
-     */
-    #playground-container {
-        height: 500px;
-        overflow: hidden !important;
-        -webkit-overflow-scrolling: touch;
-    }
-    body, html{
-         height: 100%;
-     	background-repeat: no-repeat;
-     	font-family: 'Oxygen', sans-serif;
-    }
+  .loginmodal-container input[type=text], input[type=password] {
+    height: 44px;
+    font-size: 16px;
+    width: 100%;
+    margin-bottom: 10px;
+    -webkit-appearance: none;
+    background: #fff;
+    border: 1px solid #d9d9d9;
+    border-top: 1px solid #c0c0c0;
+    /* border-radius: 2px; */
+    padding: 0 8px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+  }
 
-    .main{
-     	margin:50px 15px;
-    }
+  .loginmodal-container input[type=text]:hover, input[type=password]:hover {
+    border: 1px solid #b9b9b9;
+    border-top: 1px solid #a0a0a0;
+    -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+    -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  }
 
-    h1.title {
-    	font-size: 50px;
-    	font-family: 'Passion One', cursive;
-    	font-weight: 400;
-    }
+  .loginmodal {
+    text-align: center;
+    font-size: 14px;
+    font-family: 'Arial', sans-serif;
+    font-weight: 700;
+    height: 36px;
+    padding: 0 8px;
+  /* border-radius: 3px; */
+  /* -webkit-user-select: none;
+    user-select: none; */
+  }
 
-    hr{
-    	width: 10%;
-    	color: #fff;
-    }
+  .loginmodal-submit {
+    /* border: 1px solid #3079ed; */
+    border: 0px;
+    color: #fff;
+    text-shadow: 0 1px rgba(0,0,0,0.1);
+    background-color: #4d90fe;
+    padding: 17px 0px;
+    font-family: roboto;
+    font-size: 14px;
+    /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#4787ed)); */
+  }
 
-    .form-group{
-    	margin-bottom: 15px;
-    }
+  .loginmodal-submit:hover {
+    /* border: 1px solid #2f5bb7; */
+    border: 0px;
+    text-shadow: 0 1px rgba(0,0,0,0.3);
+    background-color: #357ae8;
+    /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#357ae8)); */
+  }
 
-    label{
-    	margin-bottom: 15px;
-    }
+  .loginmodal-container a {
+    text-decoration: none;
+    color: #666;
+    font-weight: 400;
+    text-align: center;
+    display: inline-block;
+    opacity: 0.6;
+    transition: opacity ease 0.5s;
+  }
 
-    input,
-    input::-webkit-input-placeholder {
-        font-size: 11px;
-        padding-top: 3px;
-    }
+  .login-help{
+    font-size: 12px;
+  }
+</style>
 
-    .main-login{
-     	background-color: #fff;
-        /* shadows and rounded borders */
-        -moz-border-radius: 2px;
-        -webkit-border-radius: 2px;
-        border-radius: 2px;
-        -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-        -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+<body>
+  <a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
 
-    }
-    .form-control {
-        height: auto!important;
-    padding: 8px 12px !important;
-    }
-    .input-group {
-        -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;
-        -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;
-        box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;
-    }
-    #button {
-        border: 1px solid #ccc;
-        margin-top: 28px;
-        padding: 6px 12px;
-        color: #666;
-        text-shadow: 0 1px #fff;
-        cursor: pointer;
-        -moz-border-radius: 3px 3px;
-        -webkit-border-radius: 3px 3px;
-        border-radius: 3px 3px;
-        -moz-box-shadow: 0 1px #fff inset, 0 1px #ddd;
-        -webkit-box-shadow: 0 1px #fff inset, 0 1px #ddd;
-        box-shadow: 0 1px #fff inset, 0 1px #ddd;
-        background: #f5f5f5;
-        background: -moz-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
-        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f5f5f5), color-stop(100%, #eeeeee));
-        background: -webkit-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
-        background: -o-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
-        background: -ms-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
-        background: linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5f5f5', endColorstr='#eeeeee', GradientType=0);
-    }
-    .main-center{
-     	margin-top: 30px;
-     	margin: 0 auto;
-     	max-width: 400px;
-        padding: 10px 40px;
-    	background:#009edf;
-    	    color: #FFF;
-        text-shadow: none;
-    	-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
-    -moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
-    box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    	  <div class="modal-dialog">
+				<div class="loginmodal-container">
+					<h1>Login to Your Account</h1><br>
+				  <form>
+					<input type="text" name="user" placeholder="Username">
+					<input type="password" name="pass" placeholder="Password">
+					<input type="submit" name="login" class="login loginmodal-submit" value="Login">
+				  </form>
 
-    }
-    span.input-group-addon i {
-        color: #009edf;
-        font-size: 17px;
-    }
-
-    .login-button{
-    	margin-top: 5px;
-    }
-
-    .login-register{
-    	font-size: 11px;
-    	text-align: center;
-    }
-    -->
-    </style>
-
-		<title></title>
-	</head>
-	<body>
-		<div class="container">
-			<div class="row main">
-				<div class="main-login main-center">
-				<h5>User Registretion</h5>
-					<form class="" method="post" action="#">
-
-						<div class="form-group">
-							<label for="name" class="cols-sm-2 control-label">Your Name</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="name" id="name"  placeholder="Enter your Name"/>
-								</div>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label for="email" class="cols-sm-2 control-label">Your Email</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="email" id="email"  placeholder="Enter your Email"/>
-								</div>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label for="username" class="cols-sm-2 control-label">Username</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="username" id="username"  placeholder="Enter your Username"/>
-								</div>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label for="password" class="cols-sm-2 control-label">Password</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password"/>
-								</div>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" name="confirm" id="confirm"  placeholder="Confirm your Password"/>
-								</div>
-							</div>
-						</div>
-
-						<div class="form-group ">
-							<a href="http://deepak646.blogspot.in" target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">Register</a>
-						</div>
-
-					</form>
+				  <div class="login-help">
+					<a href="#">Register</a> - <a href="#">Forgot Password</a>
+				  </div>
 				</div>
 			</div>
-		</div>
-
-		 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-	</body>
-</html>
+		  </div>
+</div>

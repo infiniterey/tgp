@@ -12,11 +12,7 @@ include("title.php");
   <!--DWLayoutTable-->
   <tr>
 
-    <td height="172" colspan="2" valign="top"><?php include("header.php"); ?></td>
-  </tr>
-  <tr>
-  <td height="33" colspan="2" valign="top">
-    <?php include("toolbar.php"); ?></td>
+    <td height="172" colspan="2" valign="top"><?php include("base/header.php"); ?></td>
   </tr>
   <tr>
 

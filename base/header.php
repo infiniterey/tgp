@@ -46,7 +46,14 @@
         <li><a href="#">Collectables</a></li>
         <li><a href="#">Drives</a></li>
         <li><a href="#">Persistency</a></li>
-        <li><a href="#">Settings</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Setting <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Agent Setting</a></li>
+            <li><a href="#">Team Setting</a></li>
+            <li><a href="#">Plan Setting</a></li>
+            <li><a href="#">User Setting</a></li>
+          </ul>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
