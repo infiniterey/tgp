@@ -5,6 +5,11 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="icon" href="http://v4-alpha.getbootstrap.com/favicon.ico">
+
+    <title>Signin Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
     <link href="http://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
@@ -13,7 +18,7 @@
 
 	<body>
 
-	    <div class="container" width =50>
+	    <div class="container" width =50%>
 
 	      <form class="form-signin">
 	        <h2 class="form-signin-heading">Please sign in</h2>
