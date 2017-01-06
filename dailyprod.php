@@ -35,15 +35,17 @@ $_SESSION['$logstatus'] = '1';
             <li>Premium:</li><li></td><td><input type="text" name="premium"placeholder="Premium"></li>
             <li>Agent:</li><li><select name="agentss">
               <option value="0"><center>--Select Agent Name--</center></option>
-              <option value="1"><center>1</center></option>
-              <option value="2"><center>2</center></option>
-                </select></li>
+              <?php  $sql_query2 = "SELECT * FROM agent order by a_lname ASC";
+               if ($result2 = $mysqli->query($sql_query2)){
+                 while ($row1 = $result2->fetch_assoc()) {
+                   echo "<option value='".$row1['id']."'>".$row1['a_lname']." , ".$row1['a_fname']."</option>";}}?></select></li>
                 <li>Plan:</li><li><select name="plannes">
-                  <option value="0"><center>--Select Type of Plan--</center></option>
-                  <option value="1"><center>1</center></option>
-                  <option value="2"><center>2</center></option>
-                </select></li><li><li>
-                    <center><input type="submit" value="Save"><a href="#"><input type="button" value="Rest"></a></center></li></li>
+                  <option value="0"><center>--Select Plan--</center></option>
+                  <?php $sql_query3 = "SELECT*from plan";
+                   if ($result3 = $mysqli->query($sql_query3)){
+                     while ($row2 = $result3->fetch_assoc()) {
+                          echo "<option value='".$row2['id']."'>".$row2['acronym']."</option>";}}?></select></li>
+                          <li><li><center><input type="submit" value="Save"><a href="#"><input type="button" value="Rest"></a></center></li></li>
   				</form></ul>
   			</div><!-- /.navbar-collapse -->
   		</nav>

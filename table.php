@@ -3,7 +3,7 @@
     require_once("dbwrapper/wrapper.php");
     $db = Database::getInstance();
     $mysqli = $db->getConnection();
-    $dates = date('Y-d-m');
+    $dates = date('m/d/Y');
     echo $dates;
   /*$sql_query = "SELECT product.id,product.tdate,product.policy_no,
   plan.acronym,product.fname,

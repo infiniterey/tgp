@@ -2,7 +2,7 @@
 require_once("dbwrapper/wrapper.php");
 $db = Database::getInstance();
 $mysqli = $db->getConnection();
-$tdate=$_POST["tdate"];
+$tdate=trim($_POST["tdate"]);
 $policy_no=trim($_POST['policy_no']);
 $or_no=trim($_POST['or_no']);
 $lname=trim($_POST['lname']);
