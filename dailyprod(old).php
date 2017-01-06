@@ -3,8 +3,9 @@
     require_once("dbwrapper/wrapper.php");
     $db = Database::getInstance();
     $mysqli = $db->getConnection();
-    $dates = date('Y-d-m');
-    echo $dates;
+    $dates = date('m-d-Y');
+    //$sql_query = "SELECT * FROM product where tdate=$dates";
+    //$sql_query = "SELECT  FROM team inner join product on team.id=product.plan inner join agent on product.agent=agent.id";
   /*$sql_query = "SELECT product.id,product.tdate,product.policy_no,
   plan.acronym,product.fname,
   product.lname,product.premium,
@@ -15,11 +16,13 @@
   plan.acronym,product.fname,
   product.lname,product.premium,
   product.or_no,product.famount,agent.a_lname,agent.a_fname
-  FROM product inner join plan on plan.id=product.plan inner join agent on product.agent=agent.id where product.tdate=$dates";
+  FROM product inner join plan on plan.id=product.plan inner join agent on product.agent=agent.id";
 
 ?>
 
-  <div class="col-md-10">
+<?php include("base/header.php"); ?>
+
+  <div class="col-md-12">
     <table id="example" class="display" cellspacing="0" width="100%">
         <thead>
             <tr>
@@ -81,7 +84,11 @@
   <script type="text/javascript">
     $(document).ready(function() {
         $('#example').DataTable({
-            "pageLength": 10
+            "pageLength": 25
         });
     } );
   </script>
+
+
+
+<?php include("base/footer.php")?>
