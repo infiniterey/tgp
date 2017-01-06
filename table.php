@@ -4,8 +4,6 @@
     $db = Database::getInstance();
     $mysqli = $db->getConnection();
     $dates = date('m-d-Y');
-    //$sql_query = "SELECT * FROM product where tdate=$dates";
-    //$sql_query = "SELECT  FROM team inner join product on team.id=product.plan inner join agent on product.agent=agent.id";
   /*$sql_query = "SELECT product.id,product.tdate,product.policy_no,
   plan.acronym,product.fname,
   product.lname,product.premium,
@@ -20,9 +18,7 @@
 
 ?>
 
-<?php include("base/header.php"); ?>
-
-  <div class="col-md-12">
+  <div class="col-md-10">
     <table id="example" class="display" cellspacing="0" width="100%">
         <thead>
             <tr>
@@ -84,11 +80,7 @@
   <script type="text/javascript">
     $(document).ready(function() {
         $('#example').DataTable({
-            "pageLength": 25
+            "pageLength": 10
         });
     } );
   </script>
-
-
-
-<?php include("base/footer.php")?>
