@@ -53,7 +53,7 @@ $_SESSION['$logstatus'] = '1';
   	</div>
   </div>  		</div>
   <div class="col-md-10">
-<center> <h2>DAILY PRODUCTION - <?php echo date('F d,Y'); ?></h2></center>
+<center> <h2>Daily Production for the month of <?php echo date('F'); ?></h2></center>
                       <div class="pull-right action-buttons">
                           <div class="btn-group pull-right"></div>
                       </div>
