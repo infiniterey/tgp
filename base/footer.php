@@ -1,5 +1,4 @@
 <html lang="en"><head>
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,300" rel="stylesheet">
     <link href="assets/css/font-awesome.css" rel="stylesheet">
     <link href="assets/css/footer.css" rel="stylesheet">
 	<body>
