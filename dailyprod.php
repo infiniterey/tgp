@@ -38,7 +38,7 @@ $_SESSION['$logstatus'] = '1';
             <li>Policy Number:</li><li></td><input type="text" name="policy_no" placeholder="Policy Number"></li>
             <li>OR number:</li><li><input type="text" name="or_no" placeholder="OR Number"></li>
             <li>Face Amount:</li><li><input type="text" name="f_amount"placeholder="Face Amount"></li>
-            <li>Premium:</li><li></td><td><input type="number" name="premium"placeholder="Premium"></li>
+            <li>Premium:</li><li><input type="number" name="premium"placeholder="Premium"></li>
             <li>Mode of Payment:</li><li><select name="mop">
                 <option value="0"><center>--Select Mode of Payment--</center></option>
                 <option value="1"><center>Monthly</center></option>
@@ -46,13 +46,13 @@ $_SESSION['$logstatus'] = '1';
                 <option value="3"><center>Semi-Annual</center></option>
                 <option value="4"><center>Annual</center></option></select></li>
             <li>Agent:</li><li><select name="agentss">
-              <option value="0"><center>--Select Agent Name--</center></option>
-              <?php  $sql_query2 = "SELECT * FROM agent order by a_lname ASC";
-               if ($result2 = $mysqli->query($sql_query2)){
-                 while ($row1 = $result2->fetch_assoc()) {
-                   echo "<option value='".$row1['id']."'>".$row1['a_lname']." , ".$row1['a_fname']."</option>";}}?></select></li>
-            <li>APR:</li><li></td><td><input type="text" name="apr" placeholder="APR Number"></li>
-              <li>IC Count:</li><li></td><td><input type="text" name="ics" placeholder="IC count"></li>
+                <option value="0"><center>--Select Agent Name--</center></option>
+                  <?php  $sql_query2 = "SELECT * FROM agent order by a_lname ASC";
+                    if ($result2 = $mysqli->query($sql_query2)){
+                      while ($row1 = $result2->fetch_assoc()) {
+                        echo "<option value='".$row1['id']."'>".$row1['a_lname']." , ".$row1['a_fname']."</option>";}}?></select></li>
+            <li>APR:</li><li><input type="text" name="apr" placeholder="APR Number"></li>
+              <li>IC Count:</li><li><input type="text" name="ics" placeholder="IC count"></li>
                     <li><li><center><input type="submit" value="Save"><a href="#"><input type="button" value="Rest"></a></center></li></li>
   				</form></ul>
   			</div><!-- /.navbar-collapse -->

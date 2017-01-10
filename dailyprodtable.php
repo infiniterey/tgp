@@ -18,6 +18,7 @@
     <table id="example" class="display" cellspacing="0" width="100%">
         <thead>
             <tr>
+                <th>ID</th>
                 <th>Transaction Date</th>
                 <th>Policy Number</th>
                 <th>Plan</th>
@@ -36,6 +37,7 @@
             <?php $total='0';$fyc='0';$ics='0'; if ($result = $mysqli->query($sql_query)) {?>
                 <?php while ($row = $result->fetch_assoc()) { ?>
                     <tr>
+                        <td><?php echo $row['id']; ?></td>
                         <td><?php echo $row['tdate']; ?></td>
                         <td><?php echo $row['policy_no']; ?></td>
                         <td><?php echo $row['acronym'];?></td>
@@ -51,12 +53,12 @@
                         <td><?php echo number_format($row['ic'], 2, '.', ',');
                         $ics =$ics+$row['ic'];?></td>
                         <td>
-                          <button class="btn btn-primary btn-xs" data-title="Edit"><span class="glyphicon glyphicon-pencil"></span></button>
-                          <button class="btn btn-danger btn-xs" data-title="Delete"><span class="glyphicon glyphicon-trash"></span></button>
+                          <a href="?ids=<?php echo $row['id']; ?>" class="btn btn-primary btn-xs" role="button"><span class="glyphicon glyphicon-pencil"></span></a>
+                          <a href="try.php?ids=<?php echo $row['id']; ?>" class="btn btn-danger btn-xs" role="button"><span class="glyphicon glyphicon-trash"></span></a>
                         </td>
                     </tr>
                 <?php }?>
-            <?php }?>
+            <?php } ?>
         </tbody>
         <tfoot>
             <tr>
