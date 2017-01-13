@@ -46,7 +46,7 @@
       	<li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Production <span class="caret"></span></a>
           <ul class="dropdown-menu">
-           	<li><a href="/dailyprod.php">Daily Production</a></li>
+           	<li><a href="dailyprod.php">Daily Production</a></li>
             <li><a href="#">Agent Production</a></li>
             <li><a href="#">Company Production</a></li>
           </ul>

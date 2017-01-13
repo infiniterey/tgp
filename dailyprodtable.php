@@ -18,7 +18,6 @@
     <table id="example" class="display" cellspacing="0" width="100%">
         <thead>
             <tr>
-                <th>ID</th>
                 <th>Transaction Date</th>
                 <th>Policy Number</th>
                 <th>Plan</th>
@@ -37,7 +36,6 @@
             <?php $total='0';$fyc='0';$ics='0'; if ($result = $mysqli->query($sql_query)) {?>
                 <?php while ($row = $result->fetch_assoc()) { ?>
                     <tr>
-                        <td><?php echo $row['id']; ?></td>
                         <td><?php echo $row['tdate']; ?></td>
                         <td><?php echo $row['policy_no']; ?></td>
                         <td><?php echo $row['acronym'];?></td>
