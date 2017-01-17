@@ -1,9 +1,7 @@
 <html><head></head>
 <?php
-session_start();
-echo "welcome";
-$ids= trim($_GET["ids"]);
-echo trim($_GET["ids"]);
+//$ids= trim($_GET["ids"]);
+$ids = "60";
 require_once("dbwrapper/wrapper.php");
 $db = Database::getInstance();
 $mysqli = $db->getConnection();
@@ -22,7 +20,7 @@ if ($result = $mysqli->query($sql_query)) {
 
 <body>
 <form action="" method="post">
-Transaction Date: <br> <input type="text" name="tdate" value="<?php echo $row['tdate']; ?>"><br>
+Transaction Date: <br> <input type="text" name="tdate" value="<?php if(!$ids=0){echo $row['tdate'];} ?>"><br>
 Last Name:<br><input type="text" name="lname" value="<?php echo $row['lname']; ?>"><br>
 First Name:<br><input type="text" name="fname" value="<?php echo $row['fname']; ?>"><br>
 Plan:<br><select name="plannes">

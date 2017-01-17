@@ -11,7 +11,7 @@
     plan.acronym,product.fname,
     product.lname,product.premium,
     product.or_no,product.famount,agent.a_lname,agent.a_fname,product.fyc,product.ic
-    FROM product inner join plan on plan.id=product.plan inner join agent on product.agent=agent.id where product.tdate between '$datestart' and '$dateend'";
+    FROM product inner join plan on plan.id=product.plan inner join agent on product.agent=agent.id where product.tdate between '$datestart' and '$dateend' ORDER BY product.tdate DESC";
 ?>
 
   <div class="col-md-10">
@@ -55,8 +55,7 @@
                           <a href="try.php?ids=<?php echo $row['id']; ?>" class="btn btn-danger btn-xs" role="button"><span class="glyphicon glyphicon-trash"></span></a>
                         </td>
                     </tr>
-                <?php }?>
-            <?php } ?>
+                <?php } }?>
         </tbody>
         <tfoot>
             <tr>
@@ -84,7 +83,8 @@
         $('#example').DataTable({
             "pageLength": 10
         });
-    } );
+        $("#example").load(window.location);
 
+    } );
 
   </script>

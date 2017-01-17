@@ -14,7 +14,6 @@ $plan=trim($_POST['plannes']);
 $mop=trim($_POST['mop']);
 $apr=trim($_POST['apr']);
 $ics=trim($_POST['ics']);
-//echo $tdate;
 //$adding=mysql_query("INSERT INTO production('t_date' , 'lname' , 'fname' , 'policy_no' , 'or_no' , 'plan' , 'premium') VALUES ('0' ,'1','2','3','4','5','6','7')");
 //$adding = mysql_query("insert into user(username,password,user_type)VALUES ('KEVINREYs','12345678s9','admin')");
 //$sql_query = "INSERT INTO 'product'('tdate','policy_no','or_no','lname','fname','famount','premium','agent','plan')VALUES('$tdate','$policy_no','$or_no','$lname','$fname','$famount','$premium','$agent','$plan')";
@@ -25,15 +24,42 @@ $sql_query3 = "SELECT*from plan where id='$plan'";
   echo $fyc=$premium*$row2['pl_rate'];
 
 }}
-$sql_query = "INSERT INTO product(tdate,policy_no,or_no,lname,fname,famount,premium,agent,plan,m_o_p,ic,fyc,apr)VALUES('$tdate','$policy_no','$or_no','$lname','$fname','$famount','$premium','$agent','$plan','$mop','$ics','$fyc','$apr')";
-
-if ($result = $mysqli->query($sql_query)){
-  echo "<center><h1>Record successfully save</h1></center>";
-  header ("refresh:1;url=dailyprod.php");
+if(isset($_POST['Add'])){
+    $sql_query = "INSERT INTO product(tdate,policy_no,or_no,lname,fname,famount,premium,agent,plan,m_o_p,ic,fyc,apr)VALUES('$tdate','$policy_no','$or_no','$lname','$fname','$famount','$premium','$agent','$plan','$mop','$ics','$fyc','$apr')";
+    if ($result = $mysqli->query($sql_query)){
+      echo "<center><h1>Record successfully save</h1></center>";
+      header ("refresh:1;url=dailyprod.php");
+    }
+    else {
+        echo "No record found";
+      echo "<button onclick='history.go(-1);'>Back </button>";
+    }
+    exit();
 }
-else {
-    echo "No record found";
-  echo "<button onclick='history.go(-1);'>Back </button>";
+
+if(isset($_POST['Save'])){
+    $sql_query = "UPDATE product(tdate,policy_no,or_no,lname,fname,famount,premium,agent,plan,m_o_p,ic,fyc,apr)VALUES('$tdate','$policy_no','$or_no','$lname','$fname','$famount','$premium','$agent','$plan','$mop','$ics','$fyc','$apr')";
+    if ($result = $mysqli->query($sql_query)){
+      echo "<center><h1>Record successfully save</h1></center>";
+      header ("refresh:1;url=dailyprod.php");
+    }
+    else {
+      echo "No record found";
+      echo "<button onclick='history.go(-1);'>Back </button>";
+    }
+    exit();
 }
 
+if(isset($_POST['Save'])){
+    $sql_query = "INSERT INTO product(tdate,policy_no,or_no,lname,fname,famount,premium,agent,plan,m_o_p,ic,fyc,apr)VALUES('$tdate','$policy_no','$or_no','$lname','$fname','$famount','$premium','$agent','$plan','$mop','$ics','$fyc','$apr')";
+    if ($result = $mysqli->query($sql_query)){
+      echo "<center><h1>Record successfully save</h1></center>";
+      header ("refresh:1;url=dailyprod.php");
+    }
+    else {
+      echo "No record found";
+      echo "<button onclick='history.go(-1);'>Back </button>";
+    }
+    exit();
+}
 ?>
