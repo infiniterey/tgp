@@ -1,3 +1,7 @@
+<head>
+  <link rel="stylesheet" type="text/css" href="assets/css/jquery.dataTables.min.css">
+</head>
+<script type="text/javascript" src="assets/js/jquery.dataTables.min.js"></script>
 <?php
 
     require_once("dbwrapper/wrapper.php");
@@ -11,7 +15,7 @@
     plan.acronym,product.fname,
     product.lname,product.premium,
     product.or_no,product.famount,agent.a_lname,agent.a_fname,product.fyc,product.ic
-    FROM product inner join plan on plan.id=product.plan inner join agent on product.agent=agent.id where product.tdate between '$datestart' and '$dateend' ORDER BY product.tdate DESC";
+    FROM product inner join plan on plan.id=product.plan inner join agent on product.agent=agent.id where product.tdate between '$datestart' and '$dateend' ORDER BY product.tdate ASC";
 ?>
 
   <div class="col-md-10">
@@ -79,12 +83,13 @@
 
 
   <script type="text/javascript">
-    $(document).ready(function() {
+    $(document).ready(function(){
         $('#example').DataTable({
             "pageLength": 10
         });
-        $("#example").load(window.location);
+      //  $("#example").load(window.location);
 
-    } );
+    });
+
 
   </script>

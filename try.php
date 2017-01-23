@@ -1,7 +1,7 @@
 <html><head></head>
 <?php
-//$ids= trim($_GET["ids"]);
-$ids = "60";
+$ids= trim($_GET["ids"]);
+echo $ids;
 require_once("dbwrapper/wrapper.php");
 $db = Database::getInstance();
 $mysqli = $db->getConnection();
@@ -19,7 +19,7 @@ if ($result = $mysqli->query($sql_query)) {
 ?>
 
 <body>
-<form action="" method="post">
+<form action="coding.php" method="post">
 Transaction Date: <br> <input type="text" name="tdate" value="<?php if(!$ids=0){echo $row['tdate'];} ?>"><br>
 Last Name:<br><input type="text" name="lname" value="<?php echo $row['lname']; ?>"><br>
 First Name:<br><input type="text" name="fname" value="<?php echo $row['fname']; ?>"><br>
@@ -48,6 +48,7 @@ Agent:<br><select name="agentss">
 APR:<br><input type="text" name="apr" value="<?php echo $row['apr']; ?>"><br>
 IC Count:<br><input type="text" name="ics" value="<?php echo $row['ic']; ?>"><br>
         <center><input type="submit" value="Save"><a href="#"><input type="button" value="Rest"></a></center>
+        <input type="text" name="ids" value="<?php echo trim($_GET["ids"]); ?>">
 </form>
 <?php }} ?>
 </body>

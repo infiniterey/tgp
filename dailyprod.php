@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php
 require_once("dbwrapper/wrapper.php");
 $db = Database::getInstance();
@@ -8,6 +9,7 @@ $mysqli = $db->getConnection();
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <link href="assets/css/sidebar2.css" rel="stylesheet">
    <script src="assets/js/jquery.min.js"></script>
+   <script src="assets/fonts/fontawesome-webfont.ttf" rel="stylesheet"></script>
   </head>
 <?php
 include("base/header.php");
@@ -27,6 +29,7 @@ $_SESSION['$logstatus'] = '1';
             <li class= "navbar-brand">DAILY PRODUCTION</li>
           <!--  <form action="dailyprod_add.php" method="post">-->
           <?php
+
               if(isset($_GET['ids'])){
                 $ids=trim($_GET["ids"]);
                 require_once("dbwrapper/wrapper.php");
@@ -56,7 +59,7 @@ $_SESSION['$logstatus'] = '1';
                          $premium=number_format($row['premium'], 2, '.', ',');
                          $premiums="text";
                          $mop=$row['m_o_p'];
-                         $agent=$row['a_lname']. ',  ' .$row['a_fname'];
+                         $agent=$row['a_lname']. ' ,  ' .$row['a_fname'];
                          $apr =$row['apr'];
                          $ics = number_format($row['ic'], 2, '.', ',');;
                          $btn1="Save";
@@ -78,6 +81,7 @@ $_SESSION['$logstatus'] = '1';
                    $agent="--Select Agent Name--";
                    $apr = "";
                    $ics = "";
+                   $ids = "";
                    $btn1="Add";
                    $description="ADD PRODUCTION";
                  }
@@ -112,6 +116,8 @@ $_SESSION['$logstatus'] = '1';
             <li>APR:</li><li><input type="text" name="apr" id="apr" placeholder="APR Number" Value="<?php echo $apr; ?>"></li>
               <li>IC Count:</li><li><input type="text" name="ics" id="ics" placeholder="IC count" Value="<?php echo $ics; ?>"></li>
                     <center><input type="submit" id="<?php echo $btn1; ?>" value="<?php echo $btn1; ?>"> <input type="button" id="rest" value="Rest" onclick="reloading()"></center>
+                    <input type="text" name="subject" id="subject" value="<?php echo $btn1; ?>">
+                    <input type="text" name="ids" id="ids" value="<?php echo $ids; ?>">
           </form></ul>
   			</div><!-- /.navbar-collapse -->
   		</nav>
@@ -139,9 +145,11 @@ $_SESSION['$logstatus'] = '1';
     			</p>
     		</footer>-->
 	  	</div>
-<script>
+<script type="text/javascript">
 $("#Add").click(function() {
+  alert("ADDING");
 $.ajax({
+
           type: "POST",
           url: "dailyprod_add.php",
           data: {
@@ -157,37 +165,53 @@ $.ajax({
             mop:$('#mop').val(),
             apr:$('#apr').val(),
             ics:$('#ics').val(),
-            Add: 'Add',
+            subject:$('#subject').val(),
            },
            dataType: "json",
           success:function(response){
-            $("#example").load(window.location + " #example");  }
+            $("#example").load(window.location + " #example");}
           });
      });
 $("#Save").click(function() {
-$.ajax({
-        type: "POST",
-        url: "dailyprod_add.php",
-        data: {
-          tdate:$('#tdate').val(),
-          policy_no:$('#policy_no').val(),
-          or_no:$('#or_no').val(),
-          lname:$('#lname').val(),
-          fname:$('#fname').val(),
-          f_amount:$('#f_amount').val(),
-          premium:$('#premium').val(),
-          agentss:$('#agentss').val(),
-          plannes:$('#plannes').val(),
-          mop:$('#mop').val(),
-          apr:$('#apr').val(),
-          ics:$('#ics').val(),
-          Add: 'Save',
-        },
-        dataType: "json",
-       success:function(response){
-         $("#example").load(window.location + " #example");  }
-});
-});
+  alert("SAVING");
+     $.ajax({
+
+               type: "POST",
+               url: "coding.php",
+               data: {
+                 tdate:$('#tdate').val(),
+                 policy_no:$('#policy_no').val(),
+                 or_no:$('#or_no').val(),
+                 lname:$('#lname').val(),
+                 fname:$('#fname').val(),
+                 f_amount:$('#f_amount').val(),
+                 premium:$('#premium').val(),
+                 agentss:$('#agentss').val(),
+                 plannes:$('#plannes').val(),
+                 mop:$('#mop').val(),
+                 apr:$('#apr').val(),
+                 ics:$('#ics').val(),
+                 subject:$('#subject').val(),
+                 ids : $('#ids').val(),
+                },
+                dataType: "json",
+                success: function(data) {},
+                error: function() {
+                  alert("ss");
+                  reloading()
+                }
+              // success:function(responses){
+
+              //   $("#example").load(window.location + " #example");  }
+               });
+
+
+return false;
+          });
+function reloading() {
+  location.replace("dailyprod.php")
+  }
+
 </script>
 </body>
 </html>
